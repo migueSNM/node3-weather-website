@@ -57,11 +57,9 @@ app.get('/weather', (req, res) => {
     if(error){
       return res.send('An error occurred.')
     }
-    console.log({body})
 
     const { latitude, longitude, location } = body
     forecast(latitude, longitude, (forecastError, forecastBody) => {
-      console.log({forecastBody})
       if(forecastError){
         return res.send('An error occurred getting forecast.')
       }
@@ -86,7 +84,6 @@ app.get('/products', (req, res) => {
     })
   }
   
-  console.log(req.query.search)
   res.send({
     products: []
   })
